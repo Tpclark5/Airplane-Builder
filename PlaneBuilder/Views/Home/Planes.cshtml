@@ -1,0 +1,30 @@
+﻿@model PlanesViewModel
+
+<div>
+    <h2>Here is your list of Planes</h2>
+</div>
+
+<ul>
+    @foreach (var plane in Model.Planes)
+    {
+        <li class="list-group-item">
+            <div>
+                <h4>@plane.name</h4>
+                <a asp-action="DeleteSelectedPlane"
+                   asp-controller="Home"
+                   asp-route-planeID="@plane.planeID">
+                    Delete
+                </a>
+                <a asp-action="UpdatePlane"
+                   asp-controller="Home"
+                   asp-route-planeID="@plane.planeID">
+                    Update
+                </a>
+
+            </div>
+        </li>
+    }
+</ul>
+<button>
+    <a asp-action="AddPlane" asp-controller="Home">Add Another Plane</a>
+</button>

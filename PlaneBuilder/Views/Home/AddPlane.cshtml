@@ -1,0 +1,38 @@
+﻿@model AddPlaneViewModel
+
+<form asp-action="AddPlane" asp-controller="Home">
+
+    <div>
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+
+        <label asp-for="Engine_Count"></label>
+        <input asp-for="Engine_Count" min="2" max="4" />
+
+        <label asp-for="Engine_Type"></label>
+        <input asp-for="Engine_Type" />
+
+        <label asp-for="Age"></label>
+        <input asp-for="Age" />
+
+        <label asp-for="Description"></label>
+        <input asp-for="Description" />
+
+        <label asp-for="Rating"></label>
+        <input asp-for="Rating" />
+
+        <label asp-for="Picture"></label>
+        <input asp-for="Picture" />
+
+        <label asp-for="Have_Ridden"></label>
+        <input asp-for="Have_Ridden" />
+
+        <input asp-for="Does_Exist" type="hidden" />
+        <input asp-for="iatacode" type="hidden" />
+        <input asp-for="Plane_Status" type="hidden" />
+        <input asp-for="EmailAddress" type="hidden" />
+        
+        <input type="submit" value="Add Purse!" />
+    </div>
+
+</form>
