@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tpcla\\Desktop\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder.csproj": {}
+    "/Users/shenayrussell/Projects/Airplane-Builder/PlaneBuilder/PlaneBuilder.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tpcla\\Desktop\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder.csproj": {
+    "/Users/shenayrussell/Projects/Airplane-Builder/PlaneBuilder/PlaneBuilder.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tpcla\\Desktop\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder.csproj",
+        "projectUniqueName": "/Users/shenayrussell/Projects/Airplane-Builder/PlaneBuilder/PlaneBuilder.csproj",
         "projectName": "PlaneBuilder",
-        "projectPath": "C:\\Users\\tpcla\\Desktop\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder.csproj",
-        "packagesPath": "C:\\Users\\tpcla\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tpcla\\Desktop\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder\\obj\\",
+        "projectPath": "/Users/shenayrussell/Projects/Airplane-Builder/PlaneBuilder/PlaneBuilder.csproj",
+        "packagesPath": "/Users/shenayrussell/.nuget/packages/",
+        "outputPath": "/Users/shenayrussell/Projects/Airplane-Builder/PlaneBuilder/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tpcla\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/shenayrussell/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -73,7 +71,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.200/RuntimeIdentifierGraph.json"
         }
       }
     }
