@@ -12,12 +12,12 @@
                 <h4>@plane.name</h4>
                 <a asp-action="DeleteSelectedPlane"
                    asp-controller="Home"
-                   asp-route-planeID="@plane.planeID">
+                   asp-route-planeID="@plane.PlaneID">
                     Delete
                 </a>
                 <a asp-action="UpdatePlane"
                    asp-controller="Home"
-                   asp-route-planeID="@plane.planeID">
+                   asp-route-planeID="@plane.PlaneID">
                     Update
                 </a>
 
@@ -26,5 +26,5 @@
     }
 </ul>
 <button>
-    <a asp-action="AddPlane" asp-controller="Home">Add Another Plane</a>
+    <a asp-action="AddPlane" asp-controller="Home">Add A Plane</a>
 </button>

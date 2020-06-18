@@ -244,3 +244,4 @@ C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.dll
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.pdb
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.genruntimeconfig.cache
+C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\Razor\Views\Home\UpdatePlane.cshtml.g.cs
