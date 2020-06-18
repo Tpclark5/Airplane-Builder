@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Tf5NB6oU4jHmn9Owa/FJpTh++7oewGQCDdhqLWmyGVofpO4LsZpA/E5CeHX7RodjKdpC6jnRIroXcEn30MWYDQ==",
+  "dgSpecHash": "4x4jkNur9R1sPdOyGEa0wqZGD7c/iEtcNkHBvwyG9zHuy/siraO6N1Z6PCQ3B8ssT5S+cuLffK0WpG9xvoml8w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tpcla\\Desktop\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder.csproj",
+  "projectFilePath": "C:\\Users\\tpcla\\Desktop\\Projects\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tpcla\\.nuget\\packages\\codecracker.csharp\\1.1.0\\codecracker.csharp.1.1.0.nupkg.sha512",
     "C:\\Users\\tpcla\\.nuget\\packages\\dapper\\2.0.35\\dapper.2.0.35.nupkg.sha512",
