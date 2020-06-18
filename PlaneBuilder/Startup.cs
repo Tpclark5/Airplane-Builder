@@ -41,14 +41,11 @@ namespace PlaneBuilder
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionStringConfig = Configuration.GetSection("DatabaseConfig");
-            var connectionString = connectionStringConfig.GetChildren().First().Value;
-
-            services.Configure<DatabaseConfig>(x => x.ConnectionStrings = connectionString);
+        
             services.AddHttpClient<IAirplaneClient, AirplaneClient>(client => client.BaseAddress = new Uri("http://api.aviationstack.com/v1/"));
             services.AddSingleton<IAirplaneRepository, AirplaneRepository>();
             services.ConfigureDapperConnectionProvider<SqlServerConnectionProvider>(
-                Configuration.GetSection("ConnectionStrings")
+                Configuration.GetSection("DapperIdentity")
             ).ConfigureDapperIdentityCryptography(Configuration.GetSection("DapperIdentityCryptography"))
              .ConfigureDapperIdentityOptions(new DapperIdentityOptions { UseTransactionalBehavior = false });
 

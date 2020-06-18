@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PlaneBuilder.Models.ManageViewModel
 {
-    public class VerifyPasswordViewModel
+    public class VerifyPhoneNumberViewModel
     {
         [Required]
         public string Code { get; set; }

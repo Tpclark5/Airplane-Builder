@@ -131,7 +131,7 @@ namespace PlaneBuilder.Controllers
 
         //
         // GET: /Account/LogOff
-        [HttpGet]
+        [HttpPost]
         // [ValidateAntiForgeryToken]
         public async Task<IActionResult> LogOff()
         {
