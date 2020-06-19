@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tpcla\\Desktop\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder.csproj": {}
+    "C:\\Users\\tpcla\\Desktop\\Projects\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tpcla\\Desktop\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder.csproj": {
+    "C:\\Users\\tpcla\\Desktop\\Projects\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tpcla\\Desktop\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder.csproj",
+        "projectUniqueName": "C:\\Users\\tpcla\\Desktop\\Projects\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder.csproj",
         "projectName": "PlaneBuilder",
-        "projectPath": "C:\\Users\\tpcla\\Desktop\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder.csproj",
+        "projectPath": "C:\\Users\\tpcla\\Desktop\\Projects\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder.csproj",
         "packagesPath": "C:\\Users\\tpcla\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tpcla\\Desktop\\PlaneBuilder\\PlaneBuilder\\PlaneBuilder\\obj\\",
+        "outputPath": "C:\\Users\\tpcla\\Desktop\\Projects\\PlaneBuilder\\PlaneBuilder\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tpcla\\AppData\\Roaming\\NuGet\\NuGet.Config",
