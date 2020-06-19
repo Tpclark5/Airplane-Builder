@@ -7,7 +7,8 @@ namespace PlaneBuilder.Models
 {
     public class AddPlaneViewModel
     {
-        public string iatacode { get; set; }
+       
+        public string Iata_Code { get; set; }
         public string Name { get; set; }
         public int Engine_Count { get; set; }
         public string Engine_Type { get; set; }

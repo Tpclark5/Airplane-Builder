@@ -29,7 +29,7 @@ namespace PlaneBuilder.Controllers
             return View(clientResult);
         }
 
-        [HttpPost]
+        [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> Planes()
         {
@@ -37,10 +37,24 @@ namespace PlaneBuilder.Controllers
             var PlaneDBOList = await _airplaneRepository.DisplayAllPlanes();
 
             model.Planes = PlaneDBOList
-                .Select(PlaneDBO => new PlaneNameandPlaneID() { name = PlaneDBO.Name, planeID = PlaneDBO.iatacode })
+                .Select(PlaneDBO => new PlaneNameandPlaneID() { name = PlaneDBO.Name, PlaneID = PlaneDBO.PlaneID })
                 .ToList();
 
             return View(model);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> Planes(PlanesViewModel model)
+        {
+            
+            var PlaneDBOList = await _airplaneRepository.DisplayAllPlanes();
+
+            model.Planes = PlaneDBOList
+                .Select(PlaneDBO => new PlaneNameandPlaneID() { name = PlaneDBO.Name, PlaneID = PlaneDBO.PlaneID })
+                .ToList();
+
+            return RedirectToAction(nameof(Planes));
         }
 
         [HttpGet]
@@ -60,7 +74,7 @@ namespace PlaneBuilder.Controllers
             dboPlanes.Age = postModel.Age;
             dboPlanes.Description = postModel.Description;
             dboPlanes.Does_Exist = postModel.Does_Exist;
-            dboPlanes.EmailAddress = postModel.EmailAddress;
+            dboPlanes.Email_Address = postModel.EmailAddress;
             dboPlanes.Engine_Count = postModel.Engine_Count;
             dboPlanes.Plane_Status = postModel.Plane_Status;
             dboPlanes.Picture = postModel.Picture;
@@ -97,7 +111,7 @@ namespace PlaneBuilder.Controllers
             model.OldHave_Ridden = currentPlane.Have_Ridden;
 
             model.Newiatacode = string.Empty;
-            model.Oldiatacode = currentPlane.iatacode;
+            model.Oldiatacode = currentPlane.Iata_Code;
 
             model.NewName = string.Empty;
             model.OldName = currentPlane.Name;
@@ -110,29 +124,30 @@ namespace PlaneBuilder.Controllers
 
             model.OldPlane_Status = currentPlane.Plane_Status;
 
-            model.OldEmailAddress = currentPlane.EmailAddress;
+            model.OldEmailAddress = currentPlane.Email_Address;
 
-            model.PlaneId = planeId;
+            model.PlaneID = planeId;
 
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult UpdatePurse(UpdatePlaneViewModel model)
+        public IActionResult UpdatePlane(UpdatePlaneViewModel model)
         {
             var dboPlane = new AirplaneDBO();
             dboPlane.Age = model.NewAge;
             dboPlane.Description = model.NewDescription;
             dboPlane.Does_Exist = model.NewDoes_Exist;
-            dboPlane.EmailAddress = model.NewEmailAddress;
+            dboPlane.Email_Address = model.NewEmailAddress;
             dboPlane.Engine_Count = model.NewEngine_Count;
             dboPlane.Engine_Type = model.NewEngine_Type;
             dboPlane.Have_Ridden = model.NewHave_Ridden;
-            dboPlane.iatacode = model.Newiatacode;
+            dboPlane.Iata_Code = model.Newiatacode;
             dboPlane.Name = model.NewName;
             dboPlane.Picture = model.NewPicture;
             dboPlane.Plane_Status = model.NewPlane_Status;
             dboPlane.Rating = model.NewRating;
+            dboPlane.PlaneID = model.PlaneID;
 
             _airplaneRepository.UpdateSelectedPlane(dboPlane);
 

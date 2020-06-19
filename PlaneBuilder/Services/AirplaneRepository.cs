@@ -21,8 +21,8 @@ namespace PlaneBuilder.Services
 
         public async Task<bool> AddAirplane(AirplaneDBO dboAirplane)
         {
-            var queryString = @$"INSERT INTO DreamPlanes (Name, IataCode, Description, Email, Engine_Count, Age, Engine_Type, Plane_Status, Have_Ridden, Rating, Picture, Does_Exist, Picture) 
-                                VALUES(@{nameof(AirplaneDBO.Name)},@{nameof(AirplaneDBO.iatacode)}, @{nameof(AirplaneDBO.Description)}, @{nameof(AirplaneDBO.EmailAddress)}, @{nameof(AirplaneDBO.Engine_Count)}, @{nameof(AirplaneDBO.Engine_Type)}), @{nameof(AirplaneDBO.Age)},@{nameof(AirplaneDBO.Have_Ridden)},@{nameof(AirplaneDBO.Rating)},@{nameof(AirplaneDBO.Plane_Status)},@{nameof(AirplaneDBO.Picture)},@{nameof(AirplaneDBO.Does_Exist)};";
+            var queryString = @$"INSERT INTO DreamPlanes (Name, Iata_Code, Description, Email_Address, Engine_Count, Age, Engine_Type, Plane_Status, Have_Ridden, Rating, Picture, Does_Exist) 
+                                VALUES(@{nameof(AirplaneDBO.Name)}, @{nameof(AirplaneDBO.Iata_Code)}, @{nameof(AirplaneDBO.Description)}, @{nameof(AirplaneDBO.Email_Address)}, @{nameof(AirplaneDBO.Engine_Count)},@{nameof(AirplaneDBO.Age)}, @{nameof(AirplaneDBO.Engine_Type)},@{nameof(AirplaneDBO.Plane_Status)}, @{nameof(AirplaneDBO.Have_Ridden)},@{nameof(AirplaneDBO.Rating)},@{nameof(AirplaneDBO.Picture)},@{nameof(AirplaneDBO.Does_Exist)})";
 
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -31,9 +31,9 @@ namespace PlaneBuilder.Services
                     var orderDetail = await connection.ExecuteAsync(queryString, dboAirplane);
                     return true;
                 }
-                catch
+                catch(Exception e)
                 {
-                    return false;
+                    throw e;
                 }
             }
         }
@@ -41,7 +41,7 @@ namespace PlaneBuilder.Services
 
         public async Task<bool> DeleteSelectedPlane(int planeID)
         {
-            var query = @"DELETE FROM DreamPlanes WHERE iatacode = @iatacode;";
+            var query = @"DELETE FROM DreamPlanes WHERE PlaneID = @PlaneID;";
 
 
             using (var connection = new SqlConnection(_connectionString))
@@ -75,7 +75,7 @@ namespace PlaneBuilder.Services
         public async Task<AirplaneDBO> SelectOnePlane(int planeId)
         {
             var query = @"Select * From DreamPlanes
-                         WHERE planeId = @planeId";
+                         WHERE PlaneID = @PlaneID";
 
             using (var connection = new SqlConnection(_connectionString))
             {
@@ -90,18 +90,18 @@ namespace PlaneBuilder.Services
             var queryString = @$"UPDATE DreamPlanes
                                 SET 
                                     Name = @Name,
-	                                 Iatacode= @iatacode, 
-	                                 Engine_Count=	@,
-                                     Engine_Type= @,
-                                    Description = @Description
-                                    Age = @Age
-                                    Does_Exist = @Does_Exist
-                                    Have_Ridden = @Have_Ridden
-                                    Rating = @Rating
-                                    EmailAddress = @EmailAddress
-                                    Plane_Status = @Plane_Status
+	                                 Iata_Code= @Iata_Code, 
+	                                 Engine_Count=	@Engine_Count,
+                                     Engine_Type= @Engine_Type,
+                                    Description = @Description,
+                                    Age = @Age,
+                                    Does_Exist = @Does_Exist,
+                                    Have_Ridden = @Have_Ridden,
+                                    Rating = @Rating,
+                                    Email_Address = @Email_Address,
+                                    Plane_Status = @Plane_Status,
                                     Picture = @Picture
-                                WHERE planeId = @planeId; ";
+                                WHERE PlaneID = @PlaneID";
 
             using (var connection = new SqlConnection(_connectionString))
             {
