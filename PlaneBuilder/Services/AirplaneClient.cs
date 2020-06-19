@@ -1,7 +1,11 @@
 ﻿using PlaneBuilder.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
+using static PlaneBuilder.Models.Airplanes;
 
 namespace PlaneBuilder.Services
 {
@@ -27,6 +31,42 @@ namespace PlaneBuilder.Services
             catch (HttpRequestException e)
             {
                 throw;
+            }
+        }
+
+        public async Task<Airplanes> FindAPlane(AirplaneDBO model)
+        {
+            try
+            {
+                var endpoint = $"/airplanes?access_key=8fef6104a20a6eeaf00499c011705ef9&limit=5000&engines_type={model.Engine_Type}&engines_count={model.Engine_Count}&plane_age={model.Age}";
+                var response = await _client.GetAsync(endpoint);
+                var json = await response.Content.ReadAsStringAsync();
+                return JsonSerializer.Deserialize<Airplanes>(json);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public async Task<Airplanes> FindAnAirport(Airplanes model)
+        {
+            var PlaneIATAProps = new List<AirplaneProperties>();
+            try
+            {
+
+                PlaneIATAProps = model.data
+                .Select(PlaneDBO => new AirplaneProperties { airline_iata_code = PlaneDBO.airline_iata_code, iata_code_short = PlaneDBO.iata_code_short })
+                .ToList();
+
+                var stringThing = PlaneIATAProps.FirstOrDefault();
+                var endpoint = $"/flights?access_key=8fef6104a20a6eeaf00499c011705ef9&limit=5&iata={(stringThing.airline_iata_code + stringThing.iata_code_short)}";
+                var response = await _client.GetAsync(endpoint);
+                var json = await response.Content.ReadAsStringAsync();
+                return JsonSerializer.Deserialize<Airplanes>(json);
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
     }
