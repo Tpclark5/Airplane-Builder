@@ -58,7 +58,7 @@ namespace PlaneBuilder.Services
             {
                 foreach (var plane in model)
                 {
-                    var endpoint = $"flights?access_key=8fef6104a20a6eeaf00499c011705ef9&limit=5&iata={(plane.airline_iata_code + plane.iata_code_short)}&flight_status=scheduled&country=";
+                    var endpoint = $"flights?access_key=8fef6104a20a6eeaf00499c011705ef9&limit=5&iata={(plane.airline_iata_code + plane.iata_code_short)}&flight_status=scheduled&country_name=UnitedStates";
                     var response = await _client.GetAsync(endpoint); // What do we do if there is no flight for the cirteria? Whatdo we do about iata call retruning whatever it wants?
                     var json = await response.Content.ReadAsStringAsync();
                     var simpleResponse = JsonSerializer.Deserialize<OverarchingAPIModel>(json);

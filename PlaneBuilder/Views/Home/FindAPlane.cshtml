@@ -1,24 +1,23 @@
 ﻿@model APISimpleResponse
-{
+
 @if (Model != null)
 {
+    <h2>We have found the following fligts that match your specifications!</h2>
     @foreach (Departure cool in Model.Departures)
     {
-        <h2>We have found the following fligts that match your specifications!</h2>
         string hourMin = (cool.estimated).ToString();
-        var timeString = hourMin.Substring(11, 15);
+        var timeString = hourMin.Substring(10, 5);
         var time = DateTime.Parse(hourMin).ToString("h:mm tt");
         <h2>
             @cool.iata airport at @time
         </h2>
-        <h4>
-            <a asp-action="Planes"
-               asp-controller="Home">
-                None of these interest me, take me back.
-            </a>
-        </h4>
     }
-
+    <h4>
+        <a asp-action="Planes"
+           asp-controller="Home">
+            None of these interest me, take me back.
+        </a>
+    </h4>
 }
 else
 {
