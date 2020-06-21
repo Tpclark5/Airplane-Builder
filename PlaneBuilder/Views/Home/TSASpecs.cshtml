@@ -1,0 +1,72 @@
+﻿@model PlaneBuilder.Models.AirportCode
+
+
+<form asp-action="TravelTime" asp-controller="Home">
+    Please select if you would prefer to get your total travel time by the time you arrive to the airport or the time you leave your house
+    <br />
+    <label>Arrive By: </label> @Html.RadioButtonFor(m => m.ArriveBy, true)  <input asp-for="Time" type="time" step="60" name="time" id="time" /> <br />
+    <label>Depart by: </label> @Html.RadioButtonFor(m => m.ArriveBy, false)  <input asp-for="Time" type="time" step="60" name="time" id="time" />
+
+
+    <br />
+    <label>Please input the address from which you are leaving: </label> @Html.TextBoxFor(m => m.Location, null) <br />
+    <input type="hidden" asp-for="Code" name="airport" value=@Model.Code>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-default" />
+        </div>
+    </div>
+
+</form>
+
+
+@*
+    <h2>Hey look at these airport codes</h2>
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Airport Codes
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">
+                <ul>
+                    @foreach (var code in Model.data)
+                    {
+                        <li>
+                            <h4>@code.airport_name</h4>
+                            <h4>@code.iata_code</h4>
+                        </li>
+                    }
+                </ul>
+            </a>
+
+        </div>
+    </div>
+    <h1>Please enter the airport code you would like information for</h1>
+
+
+    <form asp-action="GetWaitTime" asp-controller="Home">
+
+        <div>
+
+            <input type="text" name="Airport" />
+
+            <button type="submit" class="btn btn-primary">"submit"</button>
+
+        </div>
+
+    </form>
+
+    <h1>Please enter the Email address you would like to use</h1>
+    <form asp-action="GetWaitTime" asp-controller="Home">
+
+        <div>
+
+            <input type="text" name="Email Address" />
+
+            <button type="submit" class="btn btn-primary">"submit"</button>
+
+        </div>
+
+    </form>
+*@

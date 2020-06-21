@@ -11,6 +11,14 @@
         <h2>
             @cool.iata airport at @time
         </h2>
+
+        <h4>
+            <a asp-action="TSASpecs"
+               asp-controller="Home"
+               asp-route-iata="@cool.iata">
+                Show me the door-to-gate time for this flight.
+            </a>
+        </h4>
     }
     <h4>
         <a asp-action="Planes"
@@ -21,9 +29,9 @@
 }
 else
 {
-    <h2>Sorry, it looks like there are no current flights meeting your specifications.</h2>
+<h2>Sorry, it looks like there are no current flights meeting your specifications.</h2>
 }
-}
+
 
 
 

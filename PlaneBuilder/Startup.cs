@@ -44,6 +44,8 @@ namespace PlaneBuilder
             var connectionStringConfig = Configuration.GetSection("DatabaseConfig");
             var connectionString = connectionStringConfig.GetChildren().First().Value; services.Configure<DatabaseConfig>(x => x.ConnectionString = connectionString);
             services.AddHttpClient<IAirplaneClient, AirplaneClient>(client => client.BaseAddress = new Uri("http://api.aviationstack.com/v1/"));
+            services.AddHttpClient<ITSAClient, TSAClient>(client => client.BaseAddress = new Uri("https://www.tsawaittimes.com/api/airport/nqGl3FjKwukKYh9yn1daCVzWCtEU1s98/"));
+            services.AddHttpClient<IAirportCodeClient, AirportCodeClient>(client => client.BaseAddress = new Uri("http://api.aviationstack.com/v1/"));
             services.AddSingleton<IAirplaneRepository, AirplaneRepository>();
             services.ConfigureDapperConnectionProvider<SqlServerConnectionProvider>(
                 Configuration.GetSection("DapperIdentity")

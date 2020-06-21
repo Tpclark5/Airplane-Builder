@@ -42,6 +42,14 @@
               "target": "Package",
               "version": "[2.0.35, )"
             },
+            "Google.Apis": {
+              "target": "Package",
+              "version": "[1.46.0, )"
+            },
+            "GoogleApi": {
+              "target": "Package",
+              "version": "[3.9.13, )"
+            },
             "Identity.Dapper": {
               "target": "Package",
               "version": "[0.8.3-alpha, )"

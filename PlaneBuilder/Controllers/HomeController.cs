@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using GoogleApi.Entities.Common;
+using GoogleApi.Entities.Maps.Directions.Request;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -17,16 +19,79 @@ namespace PlaneBuilder.Controllers
 
         private readonly IAirplaneRepository _airplaneRepository;
 
-        public HomeController(IAirplaneClient airplanes, IAirplaneRepository airplaneRepository)
+        private readonly ITSAClient _airportClient;
+        private readonly IAirportCodeClient _airportCodeClient;
+
+        public HomeController(IAirplaneClient airplanes, IAirplaneRepository airplaneRepository, ITSAClient airportClient, IAirportCodeClient airportCodeClient)
         {
             _airplanes = airplanes;
             _airplaneRepository = airplaneRepository;
+            _airportClient = airportClient;
+            _airportCodeClient = airportCodeClient;
         }
 
         public async Task<IActionResult> Index()
         {
             var clientResult = await _airplanes.Airplanes();
             return View(clientResult);
+        }
+
+        public async Task<IActionResult> TSASpecs(Departure model)
+        {
+            AirportCode newModel = new AirportCode();
+            newModel.Code = model.iata;
+            return View(newModel);
+        }
+
+        public async Task<IActionResult> GetWaitTime(AirportCode model)
+
+        {
+            var clientResult = await _airportClient.GetAirport(model.Code);
+
+            return View(clientResult);
+        }
+
+        public async Task<IActionResult> TravelTime(AirportCode model)
+        {
+            TravelTimeViewModel travel = new TravelTimeViewModel();
+            travel.Location = model.Location;
+            travel.ArriveBy = model.ArriveBy;
+            string time = Request.Form["time"];
+            model.Code = Request.Form["airport"];
+            var tsaWaitTime = await _airportClient.GetAirport(model.Code);
+            travel.Code = model.Code;
+            travel.TSAWaitTime = tsaWaitTime.rightnow / 60;
+            string hourMin = time.Substring(0, 5);
+            time = DateTime.Parse(hourMin).ToString("h:mm tt");
+            model.Time = Convert.ToDateTime(time);
+            travel.Time = model.Time.ToString("h:mm tt");
+            DirectionsRequest request = new DirectionsRequest();
+            request.Key = "AIzaSyAD_-v70Gc1IQ2mfHkKTjCYBINKMlQ4I8I";
+            request.Origin = new Location(model.Location);
+            request.Destination = new Location(model.Code);
+            var response = GoogleApi.GoogleMaps.Directions.Query(request);
+
+            double duration = response.Routes.First().Legs.First().Duration.Value / 3600D;
+            travel.TotalTravelTime = duration + travel.TSAWaitTime;
+
+            TimeSpan tt = TimeSpan.FromHours((duration));
+            travel.DriveTime = tt.Hours.ToString("00") + " hours" + " and" + tt.Minutes.ToString(" 00") + " minutes";
+
+            if (model.ArriveBy)
+            {
+                DateTime arriveByTime = model.Time;
+                DateTime updatedTime = arriveByTime.AddHours(-(travel.TotalTravelTime));
+                travel.LeaveTime = updatedTime.ToString("h:mm tt");
+            }
+            else
+            {
+                DateTime arriveByTime = model.Time;
+                DateTime updatedTime = arriveByTime.AddHours((travel.TotalTravelTime));
+                travel.LeaveTime = updatedTime.ToString("h:mm tt");
+            }
+
+            ;
+            return View(travel);
         }
 
         [HttpGet]

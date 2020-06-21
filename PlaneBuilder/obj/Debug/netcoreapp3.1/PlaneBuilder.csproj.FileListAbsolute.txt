@@ -142,8 +142,6 @@ C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.pdb
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.genruntimeconfig.cache
 C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.csprojAssemblyReference.cache
-C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.csproj.CoreCompileInputs.cache
-C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.RazorAssemblyInfo.cache
 C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.RazorAssemblyInfo.cs
 C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.AssemblyInfoInputs.cache
@@ -286,3 +284,12 @@ C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\obj\Debug\netcoreapp3.1\Pla
 C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\obj\Debug\netcoreapp3.1\staticwebassets\PlaneBuilder.StaticWebAssets.Manifest.cache
 C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\obj\Debug\netcoreapp3.1\staticwebassets\PlaneBuilder.StaticWebAssets.xml
 C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.genruntimeconfig.cache
+C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\obj\Debug\netcoreapp3.1\Razor\Views\GetWaitTime.cshtml.g.cs
+C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\bin\Debug\netcoreapp3.1\Google.Apis.dll
+C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\bin\Debug\netcoreapp3.1\Google.Apis.Core.dll
+C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\bin\Debug\netcoreapp3.1\GoogleApi.dll
+C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.csproj.CoreCompileInputs.cache
+C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\obj\Debug\netcoreapp3.1\Razor\Views\Home\TSASpecs.cshtml.g.cs
+C:\Users\Sipe\source\repos\Plane-Bulder\PlaneBuilder\obj\Debug\netcoreapp3.1\Razor\Views\Home\TravelTime.cshtml.g.cs
