@@ -7,7 +7,7 @@ namespace PlaneBuilder.Models
 {
     public class PlaneNameandPlaneID
     {
-        public string planeID { get; set; }
+        public int PlaneID { get; set; }
         public string name { get; set; }
     }
 }
