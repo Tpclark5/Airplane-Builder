@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
+using PlaneBuilder.Models;
 using PlaneBuilder.Models.AccountViewModels;
 using PlaneBuilder.Services;
 
@@ -65,6 +66,11 @@ namespace PlaneBuilder.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation(1, "User logged in.");
+                    var email = new EmailAddressandID
+                    {
+                        Email = model.Email
+                    };
+
                     return RedirectToLocal(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
@@ -105,10 +111,12 @@ namespace PlaneBuilder.Controllers
         public async Task<IActionResult> Register(RegisterViewModel model, string returnUrl = null)
         {
             //     if not null, use this VV    if null use this VV   
+            var email = new EmailAddressandID();
             ViewData["ReturnUrl"] = returnUrl ?? Url.Content("~/");
             if (ModelState.IsValid)
             {
                 var user = new DapperIdentityUser { UserName = model.Email, Email = model.Email };
+                email.Email = model.Email;
                 var result = await _userManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -124,6 +132,8 @@ namespace PlaneBuilder.Controllers
                 }
                 AddErrors(result);
             }
+
+            
 
             // If we got this far, something failed, redisplay form
             return View(model);
@@ -462,7 +472,7 @@ namespace PlaneBuilder.Controllers
             }
             else
             {
-                return RedirectToAction(nameof(HomeController.Index), "Home");
+                return RedirectToAction(nameof(HomeController.Planes), "Home");
             }
         }
 

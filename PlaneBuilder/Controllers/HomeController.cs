@@ -2,25 +2,34 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.Extensions.Logging;
 using PlaneBuilder.Models;
+using PlaneBuilder.Models.AccountViewModels;
 using PlaneBuilder.Services;
 
 namespace PlaneBuilder.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
+        
         private readonly IAirplaneClient _airplanes;
 
         private readonly IAirplaneRepository _airplaneRepository;
+        private readonly IGetEmailAddress _getEmail;
 
-        public HomeController(IAirplaneClient airplanes, IAirplaneRepository airplaneRepository)
+        public HomeController(IAirplaneClient airplanes, IAirplaneRepository airplaneRepository, IGetEmailAddress getEmail)
         {
             _airplanes = airplanes;
             _airplaneRepository = airplaneRepository;
+            _getEmail = getEmail;
         }
 
         public async Task<IActionResult> Index()
@@ -44,7 +53,7 @@ namespace PlaneBuilder.Controllers
         }
 
         [HttpPost]
-        [AllowAnonymous]
+        
         public async Task<IActionResult> Planes(PlanesViewModel model)
         {
             
@@ -57,16 +66,20 @@ namespace PlaneBuilder.Controllers
             return RedirectToAction(nameof(Planes));
         }
 
+       
         [HttpGet]
+       
         public IActionResult AddPlane()
         {
             var model = new AddPlaneViewModel(); //pending review
-            return View(model);
+            
+             return View(model);
         }
 
         [HttpPost]
         public IActionResult AddPlane(AddPlaneViewModel postModel)
         {
+            
             var dboPlanes = new AirplaneDBO();
             dboPlanes.Name = postModel.Name;
             dboPlanes.Have_Ridden = postModel.Have_Ridden;
@@ -74,7 +87,7 @@ namespace PlaneBuilder.Controllers
             dboPlanes.Age = postModel.Age;
             dboPlanes.Description = postModel.Description;
             dboPlanes.Does_Exist = postModel.Does_Exist;
-            dboPlanes.Email_Address = postModel.EmailAddress;
+            dboPlanes.Email_Address = User.Identity.Name;
             dboPlanes.Engine_Count = postModel.Engine_Count;
             dboPlanes.Plane_Status = postModel.Plane_Status;
             dboPlanes.Picture = postModel.Picture;
@@ -86,6 +99,7 @@ namespace PlaneBuilder.Controllers
             return RedirectToAction(nameof(Planes));
         }
         [HttpGet]
+        
         public async Task<IActionResult> UpdatePlane(int planeId)
         {
             var model = new UpdatePlaneViewModel();
@@ -132,6 +146,7 @@ namespace PlaneBuilder.Controllers
         }
 
         [HttpPost]
+        
         public IActionResult UpdatePlane(UpdatePlaneViewModel model)
         {
             var dboPlane = new AirplaneDBO();
@@ -155,6 +170,7 @@ namespace PlaneBuilder.Controllers
         }
 
         [HttpGet]
+        
         public IActionResult DeleteSelectedPlane(int planeId)
         {
             _airplaneRepository.DeleteSelectedPlane(planeId);

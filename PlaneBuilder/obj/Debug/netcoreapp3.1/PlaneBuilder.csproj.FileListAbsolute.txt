@@ -93,8 +93,6 @@ C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\bin\Debug\netcoreapp3.
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.csproj.CoreCompileInputs.cache
-C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.RazorAssemblyInfo.cache
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.RazorAssemblyInfo.cs
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.AssemblyInfoInputs.cache
@@ -115,7 +113,6 @@ C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\Razor\Views\Account\SendCode.cshtml.g.cs
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\Razor\Views\Account\VerifyCode.cshtml.g.cs
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\Razor\Views\Home\AddPlane.cshtml.g.cs
-C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\Razor\Views\Home\Planes.cshtml.g.cs
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\Razor\Views\Home\UpdatePlane.cshtml.g.cs
@@ -141,3 +138,6 @@ C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.dll
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.pdb
 C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.genruntimeconfig.cache
+C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.csprojAssemblyReference.cache
+C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.csproj.CoreCompileInputs.cache
+C:\Users\tpcla\Desktop\Projects\PlaneBuilder\PlaneBuilder\obj\Debug\netcoreapp3.1\PlaneBuilder.MvcApplicationPartsAssemblyInfo.cache

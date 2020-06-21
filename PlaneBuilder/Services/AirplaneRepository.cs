@@ -16,8 +16,11 @@ namespace PlaneBuilder.Services
 
         public AirplaneRepository(IOptions<DatabaseConfig> config)
         {
-            _connectionString = config.Value.ConnectionStrings;
+            _connectionString = config.Value.ConnectionString;
         }
+
+
+     
 
         public async Task<bool> AddAirplane(AirplaneDBO dboAirplane)
         {

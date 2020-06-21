@@ -27,6 +27,7 @@
           "Dapper": "2.0.35",
           "Identity.Dapper": "0.8.3-alpha",
           "Identity.Dapper.SqlServer": "0.8.3-alpha",
+          "Microsoft.AspNetCore.Identity": "2.2.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.2",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions.Reference": "3.1.0.0",

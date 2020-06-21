@@ -8065,6 +8065,7 @@
       "Dapper >= 2.0.35",
       "Identity.Dapper >= 0.8.3-alpha",
       "Identity.Dapper.SqlServer >= 0.8.3-alpha",
+      "Microsoft.AspNetCore.Identity >= 2.2.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.2"
     ]
   },
@@ -8116,6 +8117,10 @@
           "Identity.Dapper.SqlServer": {
             "target": "Package",
             "version": "[0.8.3-alpha, )"
+          },
+          "Microsoft.AspNetCore.Identity": {
+            "target": "Package",
+            "version": "[2.2.0, )"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
