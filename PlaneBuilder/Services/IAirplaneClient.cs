@@ -10,6 +10,6 @@ namespace PlaneBuilder.Services
     {
         Task<Airplanes> Airplanes();
         Task<Airplanes> FindAPlane(AirplaneDBO model);
-        Task<Departure> FindAnAirport(Airplanes model);
+        Task<APISimpleResponse> FindAnAirport(List<Airplanes.AirplaneProperties> model);
     }
 }

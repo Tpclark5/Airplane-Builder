@@ -160,12 +160,13 @@ namespace PlaneBuilder.Controllers
             _airplaneRepository.DeleteSelectedPlane(planeId);
             return RedirectToAction(nameof(Planes));
         }
-
+        [HttpGet]
         public async Task<IActionResult> FindAPlane(int planeId)
         {
             var coolPlane = await _airplaneRepository.SelectOnePlane(planeId);
             var actualPlane = await _airplanes.FindAPlane(coolPlane);
-            var planeDeparture = _airplanes.FindAnAirport(actualPlane);
+            var PlaneList = actualPlane.data.ToList();
+            var planeDeparture = await _airplanes.FindAnAirport(PlaneList);
 
             return View(planeDeparture);
         }

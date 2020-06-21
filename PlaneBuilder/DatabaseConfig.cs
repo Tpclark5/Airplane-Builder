@@ -7,6 +7,6 @@ namespace PlaneBuilder
 {
     public class DatabaseConfig
     {
-        public string ConnectionStrings { get; set; }
+        public string ConnectionString { get; set; }
     }
 }
