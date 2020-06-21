@@ -20,6 +20,11 @@
                    asp-route-planeID="@plane.PlaneID">
                     Update
                 </a>
+                <a asp-action="FindAPlane"
+                   asp-controller="Home"
+                   asp-route-planeID="@plane.PlaneID">
+                   Do any planes match this plane?
+                </a>
 
             </div>
         </li>

@@ -1,0 +1,30 @@
+﻿@model PlaneBuilder.Models.TravelTimeViewModel
+
+    <h1>
+        @if (Model.ArriveBy)
+        {
+            <p>
+                You want to arrive to @Model.Code by @Model.Time, so you should depart from @Model.Location by @Model.LeaveTime.
+                Your drive time will be @Model.DriveTime and your TSA wait time will be @Model.TSAWaitTime.
+            </p>
+            <h4>
+                <a asp-action="Planes"
+                   asp-controller="Home">
+                    Take me back.
+                </a>
+            </h4>
+        }
+        else
+        {
+            <p>
+                If you plan on leaving @Model.Location at @Model.Time, you will arrive to your assigned gate at @Model.Code by @Model.LeaveTime.
+                Your drive time will be @Model.DriveTime and your TSA wait time will be  @Model.TSAWaitTime.
+            </p>
+            <h4>
+                <a asp-action="Planes"
+                   asp-controller="Home">
+                   Take me back.
+                </a>
+            </h4>
+        }
+    </h1> 
