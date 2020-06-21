@@ -139,7 +139,7 @@ namespace PlaneBuilder.Controllers
             dboPlanes.Age = postModel.Age;
             dboPlanes.Description = postModel.Description;
             dboPlanes.Does_Exist = postModel.Does_Exist;
-            dboPlanes.Email_Address = postModel.EmailAddress;
+            dboPlanes.Email_Address = User.Identity.Name;
             dboPlanes.Engine_Count = postModel.Engine_Count;
             dboPlanes.Plane_Status = postModel.Plane_Status;
             dboPlanes.Picture = postModel.Picture;

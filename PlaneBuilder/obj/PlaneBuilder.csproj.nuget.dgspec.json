@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sipe\\source\\repos\\Plane-Bulder\\PlaneBuilder\\PlaneBuilder.csproj": {}
+    "C:\\Users\\tpcla\\Desktop\\Projects\\Airplane-Builder\\PlaneBuilder\\PlaneBuilder.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sipe\\source\\repos\\Plane-Bulder\\PlaneBuilder\\PlaneBuilder.csproj": {
+    "C:\\Users\\tpcla\\Desktop\\Projects\\Airplane-Builder\\PlaneBuilder\\PlaneBuilder.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sipe\\source\\repos\\Plane-Bulder\\PlaneBuilder\\PlaneBuilder.csproj",
+        "projectUniqueName": "C:\\Users\\tpcla\\Desktop\\Projects\\Airplane-Builder\\PlaneBuilder\\PlaneBuilder.csproj",
         "projectName": "PlaneBuilder",
-        "projectPath": "C:\\Users\\Sipe\\source\\repos\\Plane-Bulder\\PlaneBuilder\\PlaneBuilder.csproj",
-        "packagesPath": "C:\\Users\\Sipe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sipe\\source\\repos\\Plane-Bulder\\PlaneBuilder\\obj\\",
+        "projectPath": "C:\\Users\\tpcla\\Desktop\\Projects\\Airplane-Builder\\PlaneBuilder\\PlaneBuilder.csproj",
+        "packagesPath": "C:\\Users\\tpcla\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tpcla\\Desktop\\Projects\\Airplane-Builder\\PlaneBuilder\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Sipe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\tpcla\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -81,7 +81,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
