@@ -48,7 +48,7 @@ namespace PlaneBuilder.Services
                 throw e;
             }
         }
-        public async Task<Airplanes> FindAnAirport(Airplanes model)
+        public async Task<Departure> FindAnAirport(Airplanes model)
         {
             var PlaneIATAProps = new List<AirplaneProperties>();
             try
@@ -58,11 +58,13 @@ namespace PlaneBuilder.Services
                 .Select(PlaneDBO => new AirplaneProperties { airline_iata_code = PlaneDBO.airline_iata_code, iata_code_short = PlaneDBO.iata_code_short })
                 .ToList();
 
-                var stringThing = PlaneIATAProps.FirstOrDefault();
-                var endpoint = $"/flights?access_key=8fef6104a20a6eeaf00499c011705ef9&limit=5&iata={(stringThing.airline_iata_code + stringThing.iata_code_short)}";
+                var iataCodeStorage = PlaneIATAProps.FirstOrDefault();
+                var endpoint = $"/flights?access_key=8fef6104a20a6eeaf00499c011705ef9&limit=5&iata={(iataCodeStorage.airline_iata_code + iataCodeStorage.iata_code_short)}&flight_status=scheduled";
                 var response = await _client.GetAsync(endpoint);
                 var json = await response.Content.ReadAsStringAsync();
-                return JsonSerializer.Deserialize<Airplanes>(json);
+                var simpleResponse = JsonSerializer.Deserialize<APISimpleResponse>(json);
+                var departureData = simpleResponse.Departures.FirstOrDefault();
+                return departureData;
             }
             catch (Exception e)
             {

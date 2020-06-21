@@ -161,6 +161,14 @@ namespace PlaneBuilder.Controllers
             return RedirectToAction(nameof(Planes));
         }
 
+        public async Task<IActionResult> FindAPlane(int planeId)
+        {
+            var coolPlane = await _airplaneRepository.SelectOnePlane(planeId);
+            var actualPlane = await _airplanes.FindAPlane(coolPlane);
+            var planeDeparture = _airplanes.FindAnAirport(actualPlane);
+
+            return View(planeDeparture);
+        }
 
         public IActionResult Privacy()
         {

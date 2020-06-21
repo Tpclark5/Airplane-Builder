@@ -1,0 +1,22 @@
+﻿@model Departure
+
+@if (Model.estimated != null)
+{
+    string hourMin = (Model.estimated).ToString();
+    var timeString = hourMin.Substring(11, 15);
+    var time = DateTime.Parse(hourMin).ToString("h:mm tt");
+    <h2>
+        Good news! A flight meeting your specifications will be leaving @Model.iata airport at @time! Would you like to find out how long it would take to catch the flight?
+    </h2>
+    <h4>
+        <a asp-action="Planes"
+           asp-controller="Home">
+            No, take me back to my planes
+        </a>
+    </h4>
+ }
+ else
+ {
+    <h2>Sorry, it looks like there are no current flights meeting your specifications.</h2>
+ }
+

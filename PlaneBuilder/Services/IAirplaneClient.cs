@@ -9,7 +9,7 @@ namespace PlaneBuilder.Services
     public interface IAirplaneClient
     {
         Task<Airplanes> Airplanes();
-        Task<Airplanes> FindAPlane();
-        Task<Airplanes> FindAnAirport();
+        Task<Airplanes> FindAPlane(AirplaneDBO model);
+        Task<Departure> FindAnAirport(Airplanes model);
     }
 }
