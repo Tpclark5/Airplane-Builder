@@ -1,0 +1,37 @@
+﻿@model APISimpleResponse
+
+@if (Model != null)
+{
+    <h2>We have found the following fligts that match your specifications!</h2>
+    @foreach (Departure cool in Model.Departures)
+    {
+        string hourMin = (cool.estimated).ToString();
+        var timeString = hourMin.Substring(10, 5);
+        var time = DateTime.Parse(hourMin).ToString("h:mm tt");
+        <h2>
+            @cool.iata airport at @time
+        </h2>
+
+        <h4>
+            <a asp-action="TSASpecs"
+               asp-controller="Home"
+               asp-route-iata="@cool.iata">
+                Show me the door-to-gate time for this flight.
+            </a>
+        </h4>
+    }
+    <h4>
+        <a asp-action="Planes"
+           asp-controller="Home">
+            None of these interest me, take me back.
+        </a>
+    </h4>
+}
+else
+{
+<h2>Sorry, it looks like there are no current flights meeting your specifications.</h2>
+}
+
+
+
+

@@ -33,6 +33,6 @@ namespace PlaneBuilder.Models
         public string NewPlane_Status { get; set; }
         public string NewPicture { get; set; }
 
-        public int PlaneId { get; set; }
+        public int PlaneID { get; set; }
     }
 }
