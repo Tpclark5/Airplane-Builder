@@ -101,7 +101,10 @@ namespace PlaneBuilder.Controllers
             var model = new PlanesViewModel();
             var PlaneDBOList = await _airplaneRepository.DisplayAllPlanes();
 
-            model.Planes = PlaneDBOList
+            var specificUserPlanes = PlaneDBOList.Where(planeList => planeList.Email_Address == User.Identity.Name)
+            .ToList();
+
+            model.Planes = specificUserPlanes
                 .Select(PlaneDBO => new PlaneNameandPlaneID() { name = PlaneDBO.Name, PlaneID = PlaneDBO.PlaneID })
                 .ToList();
 
