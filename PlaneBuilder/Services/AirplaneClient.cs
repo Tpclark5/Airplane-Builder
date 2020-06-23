@@ -1,4 +1,5 @@
-﻿using PlaneBuilder.Models;
+﻿using Microsoft.Extensions.Options;
+using PlaneBuilder.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,17 +13,19 @@ namespace PlaneBuilder.Services
     public class AirplaneClient : IAirplaneClient
     {
         private readonly HttpClient _client;
+        private readonly string _aviationStackKey;
 
-        public AirplaneClient(HttpClient httpClient)
+        public AirplaneClient(HttpClient httpClient, IOptions<APISecretConfig> secretConfig)
         {
             _client = httpClient;
+            _aviationStackKey = secretConfig.Value.AviationStackKey;
         }
 
         public async Task<Airplanes> Airplanes()
         {
             try
             {
-                var endpoint = $"airplanes?access_key=8fef6104a20a6eeaf00499c011705ef9";
+                var endpoint = $"airplanes?access_key={_aviationStackKey}";
                 var response = await _client.GetAsync(endpoint);
                 var json = await response.Content.ReadAsStringAsync();
                 return JsonSerializer.Deserialize<Airplanes>(json);
@@ -38,7 +41,7 @@ namespace PlaneBuilder.Services
         {
             try
             {
-                var endpoint = $"airplanes?access_key=8fef6104a20a6eeaf00499c011705ef9&limit=5&engines_type={model.Engine_Type}&engines_count={model.Engine_Count}&plane_age={model.Age}";
+                var endpoint = $"airplanes?access_key={_aviationStackKey}&limit=5&engines_type={model.Engine_Type}&engines_count={model.Engine_Count}&plane_age={model.Age}";
                 var response = await _client.GetAsync(endpoint);
                 var json = await response.Content.ReadAsStringAsync();
                 return JsonSerializer.Deserialize<Airplanes>(json);
@@ -58,7 +61,7 @@ namespace PlaneBuilder.Services
             {
                 foreach (var plane in model)
                 {
-                    var endpoint = $"flights?access_key=8fef6104a20a6eeaf00499c011705ef9&limit=5&iata={(plane.airline_iata_code + plane.iata_code_short)}&flight_status=scheduled&country_name=United States";
+                    var endpoint = $"flights?access_key={_aviationStackKey}&limit=5&iata={(plane.airline_iata_code + plane.iata_code_short)}&flight_status=scheduled&country_name=United States";
                     var response = await _client.GetAsync(endpoint); // What do we do if there is no flight for the cirteria? Whatdo we do about iata call retruning whatever it wants?
                     var json = await response.Content.ReadAsStringAsync();
                     var simpleResponse = JsonSerializer.Deserialize<OverarchingAPIModel>(json);

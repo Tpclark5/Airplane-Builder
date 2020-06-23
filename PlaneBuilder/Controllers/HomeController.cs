@@ -8,6 +8,7 @@ using GoogleApi.Entities.Maps.Directions.Request;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using PlaneBuilder.Models;
 using PlaneBuilder.Services;
 
@@ -22,12 +23,15 @@ namespace PlaneBuilder.Controllers
         private readonly ITSAClient _airportClient;
         private readonly IAirportCodeClient _airportCodeClient;
 
-        public HomeController(IAirplaneClient airplanes, IAirplaneRepository airplaneRepository, ITSAClient airportClient, IAirportCodeClient airportCodeClient)
+        private readonly string _googleClient;
+
+        public HomeController(IAirplaneClient airplanes, IAirplaneRepository airplaneRepository, ITSAClient airportClient, IAirportCodeClient airportCodeClient, IOptions<APISecretConfig>googleClient)
         {
             _airplanes = airplanes;
             _airplaneRepository = airplaneRepository;
             _airportClient = airportClient;
             _airportCodeClient = airportCodeClient;
+            _googleClient = googleClient.Value.GoogleKey;
         }
 
         public async Task<IActionResult> Index()

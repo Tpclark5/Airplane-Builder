@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PlaneBuilder.Models;
 using PlaneBuilder.Services;
 using static PlaneBuilder.Services.MessageServices;
 
@@ -32,6 +33,7 @@ namespace PlaneBuilder
 
 
             builder.AddEnvironmentVariables();
+            builder.AddUserSecrets<Program>();
             Configuration = builder.Build();
             Configuration = configuration;
         }
@@ -42,7 +44,19 @@ namespace PlaneBuilder
         public void ConfigureServices(IServiceCollection services)
         {
             var connectionStringConfig = Configuration.GetSection("DatabaseConfig");
-            var connectionString = connectionStringConfig.GetChildren().First().Value; services.Configure<DatabaseConfig>(x => x.ConnectionString = connectionString);
+            var connectionString = connectionStringConfig.GetChildren().First().Value; 
+            services.Configure<DatabaseConfig>(x => x.ConnectionString = connectionString);
+
+            var APIKeyStringConfig = Configuration.GetSection("APISecret");
+            var AviationStackKey = APIKeyStringConfig.GetChildren().ToList()[0].Value;
+            var TSAKey = APIKeyStringConfig.GetChildren().ToList()[1].Value;
+            var GoogleKey = APIKeyStringConfig.GetChildren().ToList()[2].Value;
+            services.Configure<APISecretConfig>(x => 
+            {
+                x.AviationStackKey = AviationStackKey;
+                x.TSAKey = TSAKey;
+                x.GoogleKey = GoogleKey;
+            });
 
             services.AddHttpClient<IAirplaneClient, AirplaneClient>(client => client.BaseAddress = new Uri("http://api.aviationstack.com/v1/"));
             services.AddHttpClient<ITSAClient, TSAClient>(client => client.BaseAddress = new Uri("https://www.tsawaittimes.com/api/airport/nqGl3FjKwukKYh9yn1daCVzWCtEU1s98/"));
