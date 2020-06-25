@@ -49,8 +49,8 @@ namespace PlaneBuilder
 
             var APIKeyStringConfig = Configuration.GetSection("APISecret");
             var AviationStackKey = APIKeyStringConfig.GetChildren().ToList()[0].Value;
-            var TSAKey = APIKeyStringConfig.GetChildren().ToList()[1].Value;
-            var GoogleKey = APIKeyStringConfig.GetChildren().ToList()[2].Value;
+            var TSAKey = APIKeyStringConfig.GetChildren().ToList()[0].Value;
+            var GoogleKey = APIKeyStringConfig.GetChildren().ToList()[0].Value;
             services.Configure<APISecretConfig>(x => 
             {
                 x.AviationStackKey = AviationStackKey;

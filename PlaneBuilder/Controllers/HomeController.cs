@@ -64,7 +64,7 @@ namespace PlaneBuilder.Controllers
             model.Code = Request.Form["airport"];
             var tsaWaitTime = await _airportClient.GetAirport(model.Code);
             travel.Code = model.Code;
-            travel.TSAWaitTime = tsaWaitTime.rightnow / 60;
+            travel.TSAWaitTime = tsaWaitTime.rightnow;
             string hourMin = time.Substring(0, 5);
             time = DateTime.Parse(hourMin).ToString("h:mm tt");
             model.Time = Convert.ToDateTime(time);
@@ -109,7 +109,7 @@ namespace PlaneBuilder.Controllers
             .ToList();
 
             model.Planes = specificUserPlanes
-                .Select(PlaneDBO => new PlaneNameandPlaneID() { name = PlaneDBO.Name, PlaneID = PlaneDBO.PlaneID })
+                .Select(PlaneDBO => new PlaneNameandPlaneID() { name = PlaneDBO.Name, PlaneID = PlaneDBO.PlaneID, Engine_Count = PlaneDBO.Engine_Count, Engine_Type=PlaneDBO.Engine_Type, Description=PlaneDBO.Description, Age=PlaneDBO.Age, Picture=PlaneDBO.Picture, Rating=PlaneDBO.Rating, Have_Ridden=PlaneDBO.Have_Ridden })
                 .ToList();
 
             return View(model);
@@ -122,8 +122,11 @@ namespace PlaneBuilder.Controllers
             
             var PlaneDBOList = await _airplaneRepository.DisplayAllPlanes();
 
-            model.Planes = PlaneDBOList
-                .Select(PlaneDBO => new PlaneNameandPlaneID() { name = PlaneDBO.Name, PlaneID = PlaneDBO.PlaneID })
+            var specificUserPlanes = PlaneDBOList.Where(planeList => planeList.Email_Address == User.Identity.Name)
+             .ToList();
+
+            model.Planes = specificUserPlanes
+                .Select(PlaneDBO => new PlaneNameandPlaneID() { name = PlaneDBO.Name, PlaneID = PlaneDBO.PlaneID, Engine_Count = PlaneDBO.Engine_Count, Engine_Type = PlaneDBO.Engine_Type, Description = PlaneDBO.Description, Age = PlaneDBO.Age, Picture = PlaneDBO.Picture, Rating = PlaneDBO.Rating, Have_Ridden = PlaneDBO.Have_Ridden })
                 .ToList();
 
             return RedirectToAction(nameof(Planes));
@@ -142,7 +145,7 @@ namespace PlaneBuilder.Controllers
             var dboPlanes = new AirplaneDBO();
             dboPlanes.Name = postModel.Name;
             dboPlanes.Have_Ridden = postModel.Have_Ridden;
-            dboPlanes.Engine_Type = postModel.Engine_Type;
+            dboPlanes.Engine_Type = Request.Form["Engine_Type"];
             dboPlanes.Age = postModel.Age;
             dboPlanes.Description = postModel.Description;
             dboPlanes.Does_Exist = postModel.Does_Exist;
@@ -212,7 +215,7 @@ namespace PlaneBuilder.Controllers
             dboPlane.Does_Exist = model.NewDoes_Exist;
             dboPlane.Email_Address = model.NewEmailAddress;
             dboPlane.Engine_Count = model.NewEngine_Count;
-            dboPlane.Engine_Type = model.NewEngine_Type;
+            dboPlane.Engine_Type = Request.Form["Engine_Type"];
             dboPlane.Have_Ridden = model.NewHave_Ridden;
             dboPlane.Iata_Code = model.Newiatacode;
             dboPlane.Name = model.NewName;

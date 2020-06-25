@@ -1,38 +1,72 @@
 ﻿@model AddPlaneViewModel
 
-<form asp-action="AddPlane" asp-controller="Home">
+<html>
+<body background ="http://www.kabirgrewal.com/wp-content/uploads/2017/02/planes.gif"></body>
+<body background-size ="cover"></body>
+</html>   
 
-    <div>
-        <label asp-for="Name"></label>
-        <input asp-for="Name" />
+ <div class="jumbotron" style="background-color:#6495ed;">
+        <h1 class="display-4">Create Your Dream Plane!</h1>
 
-        <label asp-for="Engine_Count"></label>
-        <input asp-for="Engine_Count" min="2" max="4" />
+        <p class="lead">Please complete the fields below </p>
+        <form asp-action="AddPlane" asp-controller="Home">
 
-        <label asp-for="Engine_Type"></label>
-        <input asp-for="Engine_Type" />
+            <div>
+                <div>
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" />
+                </div>
+                <div>
+                    <label asp-for="Engine_Count"></label>
+                    <input asp-for="Engine_Count" min="2" max="4" />
+                </div>
+                <div>
+                    <label asp-for="Engine_Type"></label>
+                    <select asp-for="Engine_Type">
+                        @{
+                            <option selected="selected" value="Jet">Jet</option>
+                            <option value="TurboProp">TurboProp</option>
 
-        <label asp-for="Age"></label>
-        <input asp-for="Age" />
+                        }
+                    </select>
+                </div>
 
-        <label asp-for="Description"></label>
-        <input asp-for="Description" />
+                <div>
+                    <label asp-for="Age"></label>
+                    <input asp-for="Age" />
+                </div>
+                <div>
+                    <label asp-for="Description"></label>
+                    <input asp-for="Description" />
+                </div>
+                <div>
+                    <label asp-for="Rating"></label>
+                    <input asp-for="Rating" />
+                </div>
+                <div>
+                    <label asp-for="Picture"></label>
+                    <input asp-for="Picture" />
+                </div>
+                <div>
+                    <label asp-for="Have_Ridden"></label>
+                    <input asp-for="Have_Ridden" />
+                </div>
 
-        <label asp-for="Rating"></label>
-        <input asp-for="Rating" />
+                <input asp-for="Does_Exist" type="hidden" />
+                <input asp-for="Iata_Code" type="hidden" />
+                <input asp-for="Plane_Status" type="hidden" />
+                <input asp-for="EmailAddress" type="hidden" />
 
-        <label asp-for="Picture"></label>
-        <input asp-for="Picture" />
 
-        <label asp-for="Have_Ridden"></label>
-        <input asp-for="Have_Ridden" />
-
-        <input asp-for="Does_Exist" type="hidden" />
-        <input asp-for="Iata_Code" type="hidden" />
-        <input asp-for="Plane_Status" type="hidden" />
-        <input asp-for="EmailAddress" type="hidden" />
+            </div>
+            <input type="submit" class="btn-primary" value="Add Plane!" />
+        </form>
         
-        <input type="submit" value="Add Plane!" />
+        
+        
+        
+        
+        
+        
     </div>
 
-</form>

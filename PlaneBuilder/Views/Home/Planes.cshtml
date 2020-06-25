@@ -1,15 +1,31 @@
 ﻿@model PlanesViewModel
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+</head>
+</html>
+
 <div>
     <h2>Here is your list of Planes</h2>
 </div>
+
+
 
 <ul>
     @foreach (var plane in Model.Planes)
     {
         <li class="list-group-item">
             <div>
-                <h4>@plane.name</h4>
+                <h4>Plane Name: @plane.name</h4>
+                <h4>Your plane has @plane.Engine_Count engines</h4>
+                <h4>Your plane has a @plane.Engine_Type engine</h4>
+                <h4>Your plane is @plane.Age years old</h4>
+                <h4>Your plane is described as: @plane.Description</h4>
+                <h4>You rated this plane: @plane.Rating</h4>
+                <h4>@plane.Picture</h4>
+                <h4>Have you ridden this plane: @plane.Have_Ridden</h4>
                 <a asp-action="DeleteSelectedPlane"
                    asp-controller="Home"
                    asp-route-planeID="@plane.PlaneID">
@@ -23,7 +39,7 @@
                 <a asp-action="FindAPlane"
                    asp-controller="Home"
                    asp-route-planeID="@plane.PlaneID">
-                   Do any planes match this plane?
+                    Do any planes match this plane?
                 </a>
 
             </div>

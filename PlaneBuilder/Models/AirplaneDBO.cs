@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ namespace PlaneBuilder.Models
         public int PlaneID { get; set; }
         public string Iata_Code { get; set; }
         public string Name { get; set; }
+        [BindProperty]
         public int Engine_Count { get; set; }
         public string Engine_Type { get; set; }
         public double Age { get; set; }
