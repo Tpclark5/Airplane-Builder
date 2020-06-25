@@ -1,24 +1,34 @@
 ﻿@model PlaneBuilder.Models.AirportCode
 
+    <div class="jumbotron">
+        <body background="https://free4kwallpapers.com/uploads/originals/2015/05/21/above-the-clouds.jpg">
+        </body>
 
-<form asp-action="TravelTime" asp-controller="Home">
-    Please select if you would prefer to get your total travel time by the time you arrive to the airport or the time you leave your house
-    <br />
-    <label>Arrive By: </label> @Html.RadioButtonFor(m => m.ArriveBy, true)  <input asp-for="Time" type="time" step="60" name="time" id="time" /> <br />
-    <label>Depart by: </label> @Html.RadioButtonFor(m => m.ArriveBy, false)  <input asp-for="Time" type="time" step="60" name="time" id="time" />
+        <div class="jumbotron">
+            <form asp-action="TravelTime" asp-controller="Home">
+                Please select if you would prefer to get your total travel time by the time you arrive to the airport or the time you leave your house
+                <br />
+                <label>Arrive By: </label> @Html.RadioButtonFor(m => m.ArriveBy, true)  <input asp-for="Time" type="time" step="60" name="time" id="time" /> <br />
+                <label>Depart by: </label> @Html.RadioButtonFor(m => m.ArriveBy, false)  <input asp-for="Time" type="time" step="60" name="time" id="time" />
 
 
-    <br />
-    <label>Please input the address from which you are leaving: </label> @Html.TextBoxFor(m => m.Location, null) <br />
-    <input type="hidden" asp-for="Code" name="airport" value=@Model.Code>
+                <br />
+                <label>Please input the address from which you are leaving: </label> @Html.TextBoxFor(m => m.Location, null) <br />
+                <input type="hidden" asp-for="Code" name="airport" value=@Model.Code>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" value="Submit" class="btn btn-default" />
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10 btn btn-primary btn-lg">
+                        <input type="submit" value="Submit" class="btn btn-default" />
+                    </div>
+                </div>
+
+            </form>
+            <a class="btn btn-primary btn-lg" href="https://localhost:5001/" role="button">Take me back</a>
         </div>
     </div>
 
-</form>
+
+
 
 
 @*

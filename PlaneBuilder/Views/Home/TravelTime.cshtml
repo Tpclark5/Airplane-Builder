@@ -1,30 +1,42 @@
 ﻿@model PlaneBuilder.Models.TravelTimeViewModel
 
+    <body background="https://free4kwallpapers.com/uploads/originals/2015/05/21/above-the-clouds.jpg">
+    </body>
     <h1>
         @if (Model.ArriveBy)
         {
-            <p>
+        <div class="jumbotron">
+            <h1 class="display-4">You're on your way!</h1>
+            <p class="lead">
                 You want to arrive to @Model.Code by @Model.Time, so you should depart from @Model.Location by @Model.LeaveTime.
                 Your drive time will be @Model.DriveTime and your TSA wait time will be @Model.TSAWaitTime.
             </p>
-            <h4>
-                <a asp-action="Planes"
-                   asp-controller="Home">
-                    Take me back.
-                </a>
-            </h4>
+            <hr class="my-4">
+            <p>Enjoy your flight!</p>
+            <a class="btn btn-primary btn-lg" href="https://localhost:5001/" role="button">Take me back</a>
+        </div>
         }
         else
         {
-            <p>
-                If you plan on leaving @Model.Location at @Model.Time, you will arrive to your assigned gate at @Model.Code by @Model.LeaveTime.
-                Your drive time will be @Model.DriveTime and your TSA wait time will be  @Model.TSAWaitTime.
-            </p>
-            <h4>
-                <a asp-action="Planes"
-                   asp-controller="Home">
-                   Take me back.
-                </a>
-            </h4>
+        <div class="jumbotron">
+            <h1 class="display-4">Shoot...</h1>
+                <p class="lead">
+                    We have not found any flights that match your parameters.
+                </p>
+            <hr class="my-4">
+                <p>Sorry about that.</p>
+            <a class="btn btn-primary btn-lg" href="https://localhost:5001/" role="button">Take me back</a>
+        </div>
         }
     </h1> 
+
+   <!-- <div class="jumbotron">
+        <h1 class="display-4">You're on your way!</h1>
+        <p class="lead">
+            You want to arrive to @Model.Code by @Model.Time, so you should depart from @Model.Location by @Model.LeaveTime.
+            Your drive time will be @Model.DriveTime and your TSA wait time will be @Model.TSAWaitTime.
+        </p>
+        <hr class="my-4">
+        <p>Enjoy your flight!</p>
+        <a class="btn btn-primary btn-lg" href="https://localhost:5001/" role="button">Take me back</a>
+    </div> -->
