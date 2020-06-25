@@ -119,7 +119,7 @@ namespace PlaneBuilder.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Planes(PlanesViewModel model)
         {
-            
+
             var PlaneDBOList = await _airplaneRepository.DisplayAllPlanes();
 
             model.Planes = PlaneDBOList
