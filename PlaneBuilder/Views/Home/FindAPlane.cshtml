@@ -1,35 +1,47 @@
 ﻿@model APISimpleResponse
 
-@if (Model != null)
-{
-    <h2>We have found the following fligts that match your specifications!</h2>
-    @foreach (Departure cool in Model.Departures)
-    {
-        string hourMin = (cool.estimated).ToString();
-        var timeString = hourMin.Substring(10, 5);
-        var time = DateTime.Parse(hourMin).ToString("h:mm tt");
-        <h2>
-            @cool.iata airport at @time
-        </h2>
+    <body background="https://wallpaperstock.net/wallpapers/thumbs1/33645.jpg">
+    </body>
 
-        <h4>
-            <a asp-action="TSASpecs"
-               asp-controller="Home"
-               asp-route-iata="@cool.iata">
-                Show me the door-to-gate time for this flight.
-            </a>
-        </h4>
-    }
+@if (Model.Departures.Count() != 0)
+    
+{
+<h2>We have found the following flights that match your specifications!</h2>
+@foreach (Departure cool in Model.Departures)
+{
+    string hourMin = (cool.estimated).ToString();
+    var timeString = hourMin.Substring(10, 5);
+    var time = DateTime.Parse(hourMin).ToString("h:mm tt");
+    <h2>
+        @cool.iata airport at @time
+    </h2>
+
     <h4>
-        <a asp-action="Planes"
-           asp-controller="Home">
-            None of these interest me, take me back.
+        <a asp-action="TSASpecs"
+           asp-controller="Home"
+           asp-route-iata="@cool.iata">
+            Show me the door-to-gate time for this flight.
         </a>
     </h4>
 }
+<h4>
+    <a asp-action="Planes"
+       asp-controller="Home">
+        None of these interest me, take me back.
+    </a>
+</h4>
+}
 else
 {
-<h2>Sorry, it looks like there are no current flights meeting your specifications.</h2>
+<div class="jumbotron">
+    <h1 class="display-4">Shoot...</h1>
+    <p class="lead">
+        We have not found any flights that match your parameters.
+    </p>
+    <hr class="my-4">
+    <p>Sorry about that.</p>
+    <a class="btn btn-primary btn-lg" href="https://localhost:5001/" role="button">Take me back</a>
+</div>
 }
 
 

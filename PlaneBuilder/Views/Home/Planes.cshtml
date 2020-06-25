@@ -1,5 +1,6 @@
 ﻿@model PlanesViewModel
 
+<!--
 <div>
     <h2>Here is your list of Planes</h2>
 </div>
@@ -33,3 +34,40 @@
 <button>
     <a asp-action="AddPlane" asp-controller="Home">Add A Plane</a>
 </button>
+    -->
+    <div class="jumbotron" background-color: #34dbeb>
+        <body 
+              background="https://cdn.hipwallpaper.com/i/17/77/notARY.jpg">
+        </body>
+        <h1 class="display-4">Here is your list of Planes!</h1>
+        <p class="lead">
+            <ul>
+                @foreach (var plane in Model.Planes)
+                {
+                    <li class="list-group-item">
+                        <div>
+                            <h4>@plane.name</h4>
+                            <a asp-action="DeleteSelectedPlane"
+                               asp-controller="Home"
+                               asp-route-planeID="@plane.PlaneID">
+                                Delete
+                            </a>
+                            <a asp-action="UpdatePlane"
+                               asp-controller="Home"
+                               asp-route-planeID="@plane.PlaneID">
+                                Update
+                            </a>
+                            <a asp-action="FindAPlane"
+                               asp-controller="Home"
+                               asp-route-planeID="@plane.PlaneID">
+                                Do any planes match this plane?
+                            </a>
+
+                        </div>
+                    </li>
+                }
+            </ul>
+        </p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" <a asp-action="AddPlane" asp-controller="Home">Add A Plane</a></a>
+    </div>
